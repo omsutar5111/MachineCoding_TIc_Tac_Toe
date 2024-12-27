@@ -37,9 +37,9 @@ public class OrderOneWinningStrategy implements PlayerWonStrategy {
         HashMap<Character,Integer>rowMap=rowsMap.get(row);
         rowMap.put(symbol,rowMap.getOrDefault(symbol,0)+1);
 
-        HashMap<Character,Integer>colMap=colsMap.get(row);
-        colMap.put(symbol,rowMap.getOrDefault(symbol,0)+1);
-
+        HashMap<Character,Integer>colMap=colsMap.get(col);
+        colMap.put(symbol,colMap.getOrDefault(symbol,0)+1);
+        System.out.println(board.getSize());
         if(checkIfCellIsOnDiagonal(row, col)){
             diagonalMap.put(symbol, diagonalMap.getOrDefault(symbol, 0)+1);
         }
@@ -47,10 +47,11 @@ public class OrderOneWinningStrategy implements PlayerWonStrategy {
         if(checkIfCellIsOnReverseDiagonal(row, col, board.getSize())){
             reverseDiagonalMap.put(symbol, reverseDiagonalMap.getOrDefault(symbol, 0)+1);
         }
+        System.out.println(rowsMap.get(row).get(symbol));
         if(rowsMap.get(row).get(symbol) == board.getSize()){
             return true;
         }
-
+        System.out.println(colsMap.get(col).get(symbol));
         if(colsMap.get(col).get(symbol) == board.getSize()){
             return true;
         }

@@ -96,6 +96,7 @@ public class Main {
 
             gameController.makeMove(game);
             gameController.undo(game);
+
         }
 
         GameStatus gameStatus = gameController.getGameStatus(game);
